@@ -23,10 +23,20 @@ class BaseTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        Bundle.main.loadNibNamed("BaseTableViewCell", owner: self, options: nil)
+        //Bundle.main.loadNibNamed("BaseTableViewCell", owner: self, options: nil)
+        let view = Bundle.main.loadNibNamed("BaseTableViewCell", owner: self, options: nil)?.first as? BaseTableViewCell
         self.backgroundColor = .green
-        self.addSubview(self.contentView)
-        self.labelxd.text = "xdxd"
+        if let view = view {
+            //view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .gray
+            self.contentView.addSubview(view)
+            self.labelxd.text = "🐙"
+            view.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+            view.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+            view.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+            view.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
+        }
+        self.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {

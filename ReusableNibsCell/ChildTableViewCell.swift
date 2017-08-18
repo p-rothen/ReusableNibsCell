@@ -13,7 +13,7 @@ class ChildTableViewCell: BaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .red
-        self.labelxd.text = "🐖"
+        self.labelxd.text = "🐖🌬"
     }
     
     required init?(coder aDecoder: NSCoder) {
